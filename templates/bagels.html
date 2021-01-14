@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="row container-fluid">
+    
     {% for P in product %}
-        {{ P.product_name }} 
+    <div class="col-md-6"></div>
+        <p>{{ P.product_name }} </p><br>
+        <p>{{ P.category_name }}</p><br>
+        <p>{{ P.product_description }}</p><br>
+        <p>{{ P.product_extra }}</p><br>
+</div>
     {% endfor %}
-
+    
+</div>
 {% endblock %}
 
