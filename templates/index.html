@@ -56,4 +56,26 @@ then baked. Our night team bakes these artisan bagels in 9 different flavours, a
 </div>
     </div>
 </div>
+
+<!--MODAL -->
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <p>THIS IS FOR EDUCATIONAL PURPOSES AND IS NOT THE OFFICIAL BAGEL CO WEBSITE</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('#myModal').modal('show');
+    });
+</script>
 {% endblock %}
