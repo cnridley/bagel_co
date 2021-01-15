@@ -17,10 +17,21 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/index")
+def index():
+    return render_template ("index.html")
+
+
 @app.route("/bagels")
 def bagels():
-    product = mongo.db.product.find()
-    return render_template("bagels.html", product=product)
+    breakfast = mongo.db.product.find({"category_name":"breakfast"})
+    bagelwiches = mongo.db.product.find({"category_name":"bagelwiches"})
+    openfaced = mongo.db.product.find({"category_name":"open-faced"})
+    pizzabagels = mongo.db.product.find({"category_name":"pizza-bagels"})
+    wrap = mongo.db.product.find({"category_name":"wraps"})
+    other = mongo.db.product.find({"category_name":"lite-bites"})
+    return render_template("bagels.html", breakfast=breakfast, bagelwiches=bagelwiches, 
+    openfaced=openfaced, pizzabagels=pizzabagels, wrap=wrap, other=other)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

@@ -8,7 +8,50 @@ body {
     width: 100%;
 }
 
+.IntroParagraph {
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
+}
 
+.IndexHeading {
+    width: 100%;
+}
+
+.IndexCarousel {
+    max-height: 300px;
+    margin-bottom: 30px;
+}
+
+.OpeningHours {
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+}
+
+hr {
+    height: 3px;
+    background-color: black;
+}
+
+.MenuWings {
+    max-width: 75px;
+    max-height: 50px;
+    -ms-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+}
+
+.Menu {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.CategoryName {
+    text-align: center;
+    font-size: 40px;
+    color: green;
+    margin-top: 15px;
+}
 /* -- For large screens --*/
 @media screen and (max-width: 2000px) {
 .RockyHeading {

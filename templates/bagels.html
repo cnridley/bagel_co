@@ -1,17 +1,73 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="row container-fluid">
-    
-    {% for P in product %}
-    <div class="col-md-6"></div>
-        <p>{{ P.product_name }} </p><br>
-        <p>{{ P.category_name }}</p><br>
-        <p>{{ P.product_description }}</p><br>
-        <p>{{ P.product_extra }}</p><br>
-</div>
+    <div class="col-12 CategoryName">BREAKFAST BAGELS</div>
+    {% for B in breakfast %}
+    <div class="col-md-4 col-sm-12 Menu">
+        <p><img class="MenuWings" src="https://res.cloudinary.com/cnridley/image/upload/v1610479306/bagel/Bagel2_dsfyu5.png" alt=""><bold>{{ B.product_name }}</bold> <br>
+        {{ B.product_description }} <br>
+        {{ B.product_extra }} </p><br>
+    </div>
     {% endfor %}
-    
+</div>
+
+<div class="row container-fluid">
+    <div class="col-12 CategoryName">BAGELWICHES</div>
+    {% for Bagel in bagelwiches %}
+    <div class="col-md-4 col-sm-12 Menu">
+        <p><img class="MenuWings" src="https://res.cloudinary.com/cnridley/image/upload/v1610479306/bagel/Bagel2_dsfyu5.png" alt=""><bold>{{ Bagel.product_name }}</bold> <br>
+        {{ Bagel.product_description }} <br>
+        {{ Bagel.product_extra }} </p><br>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row container-fluid">
+    <div class="col-12 CategoryName">OPEN-FACED</div>
+    {% for open in openfaced %}
+    <div class="col-md-4 col-sm-12 Menu">
+        <p><img class="MenuWings" src="https://res.cloudinary.com/cnridley/image/upload/v1610479306/bagel/Bagel2_dsfyu5.png" alt=""><bold>{{ open.product_name }}</bold> <br>
+        {{ open.product_description }} <br>
+        {{ open.product_extra }} </p><br>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row container-fluid">
+    <div class="col-12 CategoryName">PIZZA BAGELS</div>
+    {% for P in pizzabagels %}
+    <div class="col-md-4 col-sm-12 Menu">
+        <p><img class="MenuWings" src="https://res.cloudinary.com/cnridley/image/upload/v1610479306/bagel/Bagel2_dsfyu5.png" alt=""><bold>{{ P.product_name }}</bold> <br>
+        {{ P.product_description }} <br>
+        {{ P.product_extra }} </p><br>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="row container-fluid">
+    <div class="col-12 CategoryName">WRAPS</div>
+    {% for W in wrap %}
+    <div class="col-md-4 col-sm-12 Menu">
+        <p><img class="MenuWings" src="https://res.cloudinary.com/cnridley/image/upload/v1610479306/bagel/Bagel2_dsfyu5.png" alt=""><bold>{{ W.product_name }}</bold> <br>
+        {{ W.product_description }} <br>
+        {{ W.product_extra }} </p><br>
+    </div>
+    {% endfor %}
+</div>
+
+
+<div class="row container-fluid">
+    <div class="col-12 CategoryName">LITE BITES</div>
+    {% for O in other %}
+    <div class="col-md-4 col-sm-12 Menu">
+        <p><img class="MenuWings" src="https://res.cloudinary.com/cnridley/image/upload/v1610479306/bagel/Bagel2_dsfyu5.png" alt=""><bold>{{ O.product_name }}</bold> <br>
+        {{ O.product_description }} <br>
+        {{ O.product_extra }} </p><br>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}
 
