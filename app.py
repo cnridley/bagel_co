@@ -30,8 +30,10 @@ def bagels():
     pizzabagels = mongo.db.product.find({"category_name":"pizza-bagels"})
     wrap = mongo.db.product.find({"category_name":"wraps"})
     other = mongo.db.product.find({"category_name":"lite-bites"})
+
     return render_template("bagels.html", breakfast=breakfast, bagelwiches=bagelwiches, 
     openfaced=openfaced, pizzabagels=pizzabagels, wrap=wrap, other=other)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
