@@ -86,7 +86,8 @@ def logout():
 
 @app.route("/new_bagel")
 def new_bagel():
-    return render_template("new_bagel.html")
+    categories = mongo.db.category.find().sort("category_name", 1)
+    return render_template("new_bagel.html", categories=categories)
 
 
 if __name__ == "__main__":

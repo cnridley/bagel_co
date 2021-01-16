@@ -6,13 +6,11 @@
 <form>
   <!-- Category selection -->
   <div class="form-group">
-    <label for="exampleFormControlSelect1">Select Category</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+    <label for="categorySelection">Select Category</label>
+    <select class="form-control" id="categorySelection">
+       {% for category in categories %}
+            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+        {% endfor %}
     </select>
   </div>
 
