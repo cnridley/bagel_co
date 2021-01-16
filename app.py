@@ -47,8 +47,42 @@ def register():
 
         mongo.db.user.insert_one(new_user)
         session["user"] = request.form.get("username").lower()
+        flash("USER CREATED SUCCESSFULLY!")
         
     return render_template("register.html")
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # to check if the user already exists in the DB. Check mongo DB using the 
+        # find_one function and putting the parament
+        # as what the user inputted into the form using the form.get
+        registered_user = mongo.db.user.find_one({"username": request.form.get("username").lower()})
+
+        if registered_user:
+            #make sure the user password matches that the password hash generated in the register route.
+            if check_password_hash(registered_user['password'], request.form.get('password')):
+                session['user'] = request.form.get('username').lower()
+                flash("Welcome, {}".format(request.form.get('username')))
+            
+            else:
+                flash("USERNAME AND/OR PASSWORD IS INCORRECT")
+                return redirect(url_for('login'))
+        
+        else:
+            flash("USERNAME AND/OR PASSWORD IS INCORRECT")
+            return redirect(url_for('login'))
+    
+    return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
 
 
 if __name__ == "__main__":

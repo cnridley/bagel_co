@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<h1 class="register text-center">Welcome, please register a new user here!</h1>
+<h1 class="login text-center">Welcome, please login here!</h1>
 
-<form method="POST" action="{{ url_for('register') }}">
+<form method="POST" action="{{ url_for('login') }}">
   <div class="form-group">
     <label for="username">Username</label>
     <input type="text" name ="username" class="form-control" id="username"
@@ -15,8 +15,7 @@
     <input type="password" name="password" class="form-control" id="password" 
     minlength="5" maxlength="20" placeholder="Password" required>
   </div>
-  <button type="submit button" class="btn btn-primary" data-toggle="modal" data-target="#RegisterModal">Submit</button>
+  <button type="submit button" class="btn btn-primary" data-toggle="modal" data-target="#RegisterModal">Login!</button>
 </form>
 
 {% endblock %}
-
