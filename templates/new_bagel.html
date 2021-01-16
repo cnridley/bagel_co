@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">Add new bagel to menu</h1>
+
+<form>
+  <!-- Category selection -->
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Select Category</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+
+  <!--product_name-->
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Product Name</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+  </div>
+
+  <!--Product description-->
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Product description</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+  <!--Submit button -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
