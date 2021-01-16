@@ -84,8 +84,18 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/new_bagel")
+@app.route("/new_bagel", methods=["GET", "POST"])
 def new_bagel():
+    if request.method == "POST":
+        bagel = {
+            "category_name": request.form.get('category_name'),
+            "product_name": request.form.get('product_name'),
+            "product_description": request.form.get('product_description')
+        }
+        mongo.db.product.insert_one(bagel)
+        flash('new item added!')
+        return redirect(url_for("bagels"))
+
     categories = mongo.db.category.find().sort("category_name", 1)
     return render_template("new_bagel.html", categories=categories)
 

@@ -3,11 +3,11 @@
 {% block content %}
 <h1 class="text-center">Add new bagel to menu</h1>
 
-<form>
+<form method="POST" action="{{ url_for('new_bagel') }}">
   <!-- Category selection -->
   <div class="form-group">
-    <label for="categorySelection">Select Category</label>
-    <select class="form-control" id="categorySelection">
+    <label for="category_name">Select Category</label>
+    <select class="form-control" id="category_name" name="category_name">
        {% for category in categories %}
             <option value="{{ category.category_name }}">{{ category.category_name }}</option>
         {% endfor %}
@@ -16,14 +16,14 @@
 
   <!--product_name-->
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Product Name</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+    <label for="product_name">Product Name</label>
+    <textarea class="form-control" id="product_name" rows="1" name="product_name"></textarea>
   </div>
 
   <!--Product description-->
   <div class="form-group">
-    <label for="exampleFormControlTextarea1">Product description</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="product_description">Product description</label>
+    <textarea class="form-control" id="product_description" rows="3" name="product_description"></textarea>
   </div>
 
   <!--Submit button -->
