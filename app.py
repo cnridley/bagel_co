@@ -2,6 +2,7 @@ import os
 from flask import Flask, flash, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 
 if os.path.exists("env.py"):
     import env
@@ -33,6 +34,21 @@ def bagels():
 
     return render_template("bagels.html", breakfast=breakfast, bagelwiches=bagelwiches, 
     openfaced=openfaced, pizzabagels=pizzabagels, wrap=wrap, other=other)
+
+
+@app.route('/register', methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+
+        new_user = {
+            "username": request.form.get("username"),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+
+        mongo.db.user.insert_one(new_user)
+        session["user"] = request.form.get("username").lower()
+        
+    return render_template("register.html")
 
 
 if __name__ == "__main__":

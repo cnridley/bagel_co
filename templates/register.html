@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('register') }}">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" name ="username" class="form-control" id="username"
+    minlength="5" maxlength="20" aria-describedby="emailHelp" placeholder="Enter username" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" name="password" class="form-control" id="password" 
+    minlength="5" maxlength="20" placeholder="Password" required>
+  </div>
+  <button type="submit button" class="btn btn-primary" data-toggle="modal" data-target="#RegisterModal">Submit</button>
+</form>
+
+<div class="modal fade" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="RegisterModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        User Succesfully Registered
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
