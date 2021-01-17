@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">Edit Menu Item</h1>
+
+<form method="POST" action="{{ url_for('edit_bagel', product_id=product._id) }}">
+  <!-- Category selection -->
+  <div class="form-group">
+    <label for="category_name">Select Category</label>
+    <select class="form-control" id="category_name" name="category_name">
+       {% for category in categories %}
+            {% if category.category_name == product.category_name %}
+        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+  {% else %} 
+        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+  {% endif %}
+        {% endfor %}
+    </select>
+  </div>
+
+  <!--product_name-->
+  <div class="form-group">
+    <label for="product_name">Product Name</label>
+    <textarea class="form-control" id="product_name" rows="1" name="product_name">{{- product.product_name -}}</textarea>
+  </div>
+
+  <!--Product description-->
+  <div class="form-group">
+    <label for="product_description">Product description</label>
+    <textarea class="form-control" id="product_description" rows="3" name="product_description">{{- product.product_description -}}</textarea>
+  </div>
+
+  <!--Submit button -->
+  <button type="submit" class="btn btn-primary">Edit</button>
+  <a href="{{ url_for('bagels') }}">Cancel</a>
+</form>
+{% endblock %}

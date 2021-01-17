@@ -100,6 +100,31 @@ def new_bagel():
     return render_template("new_bagel.html", categories=categories)
 
 
+@app.route('/edit_bagel/<product_id>', methods=['GET', 'POST'])
+def edit_bagel(product_id):
+    if request.method == "POST":
+        bagel = {
+            "category_name": request.form.get('category_name'),
+            "product_name": request.form.get('product_name'),
+            "product_description": request.form.get('product_description')
+        }
+        mongo.db.product.update({"_id": ObjectId(product_id)}, bagel)
+        flash('Item Updated!')
+        return redirect(url_for("bagels"))
+
+    product = mongo.db.product.find_one({"_id": ObjectId(product_id)})
+    categories = mongo.db.category.find().sort("category_name", 1)
+    return render_template("edit_bagel.html", product=product, categories=categories)
+
+
+@app.route("/delete/<product_id>", methods=['GET', 'POST'])
+def delete(product_id):
+    breakfast = mongo.db.product.find({"category_name": "breakfast"})
+    mongo.db.product.remove({"_id": ObjectId(product_id)})
+    flash("Item Removed")
+    return render_template("bagels.html", breakfast=breakfast)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

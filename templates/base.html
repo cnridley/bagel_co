@@ -28,9 +28,11 @@
       <a class="nav-item nav-link" href="{{ url_for ('bagels') }}">Menu</a>
       <a class="nav-item nav-link" href="#">Contact</a>
       <a class="nav-item nav-link" href="{{ url_for ('login') }}">Log In</a>
+      {% if session.user %}
       <a class="nav-item nav-link" href="{{ url_for ('register') }}">Register</a>
       <a class="nav-item nav-link" href="{{ url_for ('new_bagel') }}">Add new menu item</a>
       <a class="nav-item nav-link" href="{{ url_for ('logout') }}" data-toggle="modal" data-target="#LogOutModal">Log Out</a>
+      {% endif %}
     </div>
   </div>
 </nav>
@@ -60,8 +62,8 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                    <div class="row">
-                        <h4 class="text-center">{{ message }}</h4>
+                    <div class="row FlashMessages">
+                        {{ message }}
                     </div>
                 {% endfor %}
             {% endif %}
