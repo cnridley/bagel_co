@@ -9,7 +9,7 @@
         <p><img class="MenuWings" src="https://res.cloudinary.com/cnridley/image/upload/v1610479306/bagel/Bagel2_dsfyu5.png" alt=""><bold>{{ B.product_name }}</bold><br>
         {% if session.user %}
         <a href="{{ url_for('edit_bagel', product_id=B._id) }}">Edit </a>
-        <a href="#" data-toggle="modal" data-target="#DeleteModal">Delete </a><br>
+        <a href="">Delete </a><br>
         {% endif %}
         {{ B.product_description }} <br>
         {{ B.product_extra }} </p>
@@ -95,27 +95,6 @@
     {% endfor %}
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Delete Item</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Are you sure?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-         {% for Break in breakfast %}
-        <a href="{{ url_for('delete', product_id=Break._id) }}">Delete!</a>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</div>
+
 {% endblock %}
 
