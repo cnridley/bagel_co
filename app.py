@@ -117,6 +117,18 @@ def edit_bagel(product_id):
     return render_template("edit_bagel.html", product=product, categories=categories)
 
 
+@app.route("/delete_bagel/<product_id>", methods=['GET', 'POST'])
+def delete_bagel(product_id):
+    if request.method == "POST":
+        mongo.db.product.remove({"_id": ObjectId(product_id)})
+        flash('Item Deleted!')
+        return redirect(url_for("bagels"))
+
+    product = mongo.db.product.find_one({"_id": ObjectId(product_id)})
+    return render_template("delete_bagel.html", product=product)
+
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

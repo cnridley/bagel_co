@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center">NOO! not {{ product.product_name }}. <br>
+That was my favourite!<br><br>
+Are you sure?!</h1>
+
+<form method="POST" action="{{ url_for('delete_bagel', product_id=product._id) }}">
+
+
+  <!--product_name
+  <div class="form-group">
+    <label for="product_name">Product Name</label>
+    <textarea class="form-control" id="product_name" rows="1" name="product_name">{{- product.product_name -}}</textarea>
+  </div>
+-->
+
+  <!--Submit button -->
+  <button type="submit" class="btn btn-primary">Delete!</button>
+  <a href="{{ url_for('bagels') }}">Cancel</a>
+</form>
+{% endblock %}
