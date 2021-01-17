@@ -41,22 +41,11 @@ hr {
     transform: rotate(-10deg);
 }
 
-.Menu {
-    text-align: center;
-    padding-top: 30px;
-}
-
-.CategoryName {
-    text-align: center;
-    font-size: 40px;
-    color: green;
-    margin-top: 15px;
-}
-
 form {
     width: 75%;
     margin: auto;
     margin-top: 50px;
+    text-align: center;
 }
 
 .FlashMessages {
@@ -64,6 +53,12 @@ form {
     justify-content: center;
     margin: auto;
 }
+
+.ContactForm {
+    text-align: center;
+}
+
+
 /* -- For large screens --*/
 @media screen and (max-width: 2000px) {
 .RockyHeading {
@@ -90,19 +85,37 @@ form {
    border-width: 2px;
 }
 
+.CategoryName {
+    text-align: center;
+    font-size: 40px;
+    color: green;
+    margin-top: 20px;
+}
+
+.Menu {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+.PageHeader {
+    text-align: center;
+    font-size: 40px;
+}
+
 }
 
 /*-- For medium or smaller screens --*/
 @media only screen and (max-width: 768px) {
 .RockyHeading {
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .BagelWings {
      -ms-transform: rotate(-10deg);
     transform: rotate(-10deg);
-    max-width: 75px;
+    max-width: 60px;
     max-height: 50px;
 }
 
@@ -115,6 +128,24 @@ form {
    font-size: 12px;
    border-radius: 0px;
    border-width: 2px;
+}
+
+.CategoryName {
+    text-align: center;
+    font-size: 22px;
+    color: green;
+    margin-top: 20px;
+}
+
+.Menu {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 12px;
+}
+
+.PageHeader {
+    text-align: center;
+    font-size: 22px;
 }
 
 }

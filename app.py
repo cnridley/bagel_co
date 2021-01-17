@@ -64,6 +64,7 @@ def login():
             if check_password_hash(registered_user['password'], request.form.get('password')):
                 session['user'] = request.form.get('username').lower()
                 flash("Welcome, {}".format(request.form.get('username')))
+                return redirect(url_for('bagels'))
             
             else:
                 flash("USERNAME AND/OR PASSWORD IS INCORRECT")
@@ -126,6 +127,10 @@ def delete_bagel(product_id):
 
     product = mongo.db.product.find_one({"_id": ObjectId(product_id)})
     return render_template("delete_bagel.html", product=product)
+
+@app.route("/contact")
+def contact():
+    return render_template('contact.html')
 
 
 
